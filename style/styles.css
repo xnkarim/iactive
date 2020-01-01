@@ -1,0 +1,200 @@
+body{
+  background-color: rgb(214, 214, 214);
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+#box{
+  width: 100px;
+  height: 100px;
+  border:  1px solid;
+}
+.purple{
+  background: #cc64b7;
+}
+.blue{
+  background: #08f;
+}
+.grey{
+  background: #404040;
+}
+a{
+  color: #08f;
+  padding-right: 0.5rem;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+}
+.player{
+  color: #fff;
+  font-size: 1.15rem;
+  padding: 15px 25px;
+  max-width: 40rem;
+  min-width: 32rem;
+  background: rgba(64,64,64,0.8);
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.19), 0 6px 6px -10px rgba(0, 0, 0, 0.23);
+}
+.title{
+  width: 100%;
+  line-height: 1.5rem;
+}
+.time{
+  font-size: 1rem;
+  display: contents
+}
+.play{
+  width: 1rem;
+}
+.controls{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.7rem;
+}
+.progress{
+  width: 45%;
+}
+.progress_bar{
+  position: relative;
+  right: 0;
+  left: 0;
+  top: 0.9rem;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.95);
+  width: 95%;
+  height: 0.125rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.progress_line, .progress_control,
+.volume_progress_line, .volume_progress_control{
+  position: absolute;
+  cursor: pointer;
+}
+.progress_line,.volume_progress_line{
+  width: 0;
+  height: 100%;
+  background: -webkit-linear-gradient(left, rgba(204, 100, 183, 0.5), rgba(204, 100, 183, 0.85));
+  background: linear-gradient(to right, rgba(204, 100, 183, 0.5), rgba(204, 100, 183, 0.85));
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+.progress_control,.volume_progress_control{
+  top: -0.375rem;
+  left: 0;
+  z-index: 3;
+  width: 0.875rem;
+  height: 0.875rem;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+.volume_progress_line{
+  width: 100%;
+}
+.volume_progress_control{
+  left: 88%;
+}
+.progress_line:focus, .progress_control:focus,
+.progress_line:hover, .progress_control:hover,
+.volume_progress_line:focus, .volume_progress_control:focus,
+.volume_progress_line:hover, .volume_progress_control:hover{
+  background: #cc64b7;
+}
+.volume_control{
+  display: none;
+  /* border: 1px solid; */
+  border-radius: 0.3rem;
+  padding: 0 0.5rem;
+  background: #404040;
+  position: absolute;
+  height: 100%;
+  padding-left: 1rem;
+  left: -0.3rem;
+}
+.volume:hover + .volume_control{
+  display: flex;
+}
+.volume_progress_bar{
+  display: none;
+  position: relative;
+  top: 0.67rem;
+  background: rgba(255, 255, 255, 0.95);
+  width: 80%;
+  height: 0.125rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+.volume_control.active{
+  display: flex;
+  width: 100%;
+}
+.volume_control.active .volume_progress_bar{
+  display: block;
+}
+.sub-controls{
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  width: 15%;
+}
+
+a.volume{
+  z-index: 90;
+}
+
+.rate_picker{
+  position: relative;
+}
+.rate_list{
+  display: none;
+  position: absolute;
+  background-color: rgba(64,64,64,0.8);
+  width: 5rem;
+  padding: 0.4rem;
+  border-radius: 1rem;
+  top: -15rem;
+}
+.rate_list.active{
+  display: block;
+}
+.current_rate{
+  cursor: pointer;
+  width: 2rem;
+}
+.radio{
+  position: relative;
+  padding: 0.16rem 0;
+}
+.radio_input{
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: 99999999999;
+}
+.radio_label{
+  padding-left: 25px;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+.radio_label:hover{
+  color: #cc64b7;
+}
+.radio_label::before{
+  font-family: FontAwesome;
+  content: '\f00c';
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0.3rem;
+  left: 0;
+  transition: border .1s linear;
+}
+
+.radio_input:checked+.radio_label::before{
+  opacity: 1;
+}
+.radio_input:checked+.radio_label{
+  color: #cc64b7;
+}
